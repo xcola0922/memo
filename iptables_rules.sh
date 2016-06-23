@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#define 定義埠號
+#define 定義埠號，讓後面的規則可以套用，減少規則的行數
 srcPortNumber1="22"
 dstPortNumber1="2222"
 srcPortNumber2="23"
@@ -11,10 +11,10 @@ srcPortNumber5="21,80,81,102,443,502,514,1234,1962,4000,4001,5001,5120,7000:7025
 srcPortNumber6="20000,32764,44818,49152,58455"
 
 
-#flush all rules 
-iptables -F
-iptables -X
-iptables -Z
+#flush all rules  清除所有規則，避免有舊的規則會造成干擾
+iptables -F #清除所有的已訂定的規則
+iptables -X #殺掉所有使用者 "自訂" 的 chain (應該說的是 tables ）
+iptables -Z #將所有的 chain 的計數與流量統計都歸零
 
 
 #all drop

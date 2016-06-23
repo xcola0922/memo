@@ -34,7 +34,7 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 #PREROUTING 將外部連線進來的Port(22)重新導向到新的Port(2222)
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $srcPortNumber1 -j REDIRECT --to-port $dstPortNumber1  #ssh
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $srcPortNumber2 -j REDIRECT --to-port $dstPortNumber2  #telnet
-#-t nat(網路位址的轉換)
+#-t nat -A PREOUTING(網路位址的轉換)將外部連線進來的封包重新導向
 #-i 指向網路卡
 #-p tcp --dport $srcPortNumber 指定封包類型tcp，埠號對應最上面所定義的來源埠號數值
 #-j REDIRECT --to-port $dstPortNumber 將封包導向最上面所定義的目的地埠號數值

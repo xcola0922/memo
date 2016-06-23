@@ -23,8 +23,8 @@ iptables -P OUTPUT ACCEPT #允許所有封包出去
 iptables -P FORWARD ACCEPT #允許所有封包轉寄
 
 #input
-iptables -A INPUT -i lo -j ACCEPT
-iptables -A OUTPUT -i lo -j ACCEPT
+iptables -A INPUT -i lo -j ACCEPT #設定 lo 成為受信任的裝置，亦即進入 lo 的封包都予以接受
+iptables -A OUTPUT -i lo -j ACCEPT #設定 lo 成為受信任的裝置，亦即出去 lo 的封包都予以接受
 
 
 #localhost

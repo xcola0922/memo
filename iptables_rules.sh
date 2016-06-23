@@ -17,10 +17,10 @@ iptables -X #殺掉所有使用者 "自訂" 的 chain (應該說的是 tables �
 iptables -Z #將所有的 chain 的計數與流量統計都歸零
 
 
-#all drop
-iptables -P INPUT DROP
-iptables -P OUTPUT ACCEPT
-iptables -P FORWARD ACCEPT
+#all drop 設定封包進入基本規則
+iptables -P INPUT DROP #阻擋所有進入的封包，以下規則除外
+iptables -P OUTPUT ACCEPT #允許所有封包出去
+iptables -P FORWARD ACCEPT #允許所有封包轉寄
 
 #input
 iptables -A INPUT -i lo -j ACCEPT

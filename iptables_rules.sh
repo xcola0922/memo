@@ -29,6 +29,7 @@ iptables -A OUTPUT -i lo -j ACCEPT #設定 lo 成為受信任的裝置，亦即�
 
 #localhost
 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+#只要已建立或相關封包就予以通過，只要是不合法封包就丟棄
 
 #PREROUTING
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $srcPortNumber1 -j REDIRECT --to-port $dstPortNumber1  #ssh

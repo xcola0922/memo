@@ -26,8 +26,10 @@ iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT #只要已建�
 #allow
 iptables -A INPUT -i lo -j ACCEPT #設定 lo 成為受信任的裝置，亦即進入 lo 的封包都予以接受
 iptables -A OUTPUT -i lo -j ACCEPT #設定 lo 成為受信任的裝置，亦即出去 lo 的封包都予以接受
-iptables -t nat -A PREROUTING -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT
-iptables -A INPUT -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT
+
+#下面的規則允許特定IP導到SSH 22 Port，這樣才能進行管理，因為後面的規則其它連線會導到kippo的port
+iptables -t nat -A PREROUTING -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT 
+iptables -A INPUT -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT #允許 SSH 22 PORT 連線進入
 
 #PREROUTING 將外部連線進來的Port(22)重新導向到新的Port(2222)
 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $srcPortNumber1 -j REDIRECT --to-port $dstPortNumber1  #ssh
@@ -41,6 +43,7 @@ iptables -t nat -A PREROUTING -i eth0 -p tcp --match multiport --dports $srcPort
 iptables -t nat -A PREROUTING -i eth0 -p tcp --match multiport --dports $srcPortNumber6 -j REDIRECT --to-port $dstPortNumber2  #Multiple Port
 #-p tcp --match multiport --dports $srcPortNumber 埠號對應最上面所定義的來源埠號數值，此為多埠號所使用的參數
 
+#下面的規則允許PREROUTING進來的port可以進入到kippo的port
 iptables -A INPUT -i eth0 -p tcp --match multiport --dport $dstPortNumber1 -j ACCEPT
 iptables -A INPUT -i eth0 -p tcp --match multiport --dport $dstPortNumber2 -j ACCEPT
  

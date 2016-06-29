@@ -10,7 +10,7 @@
   9 srcPortNumber4="44818,49152,58455"
  10 srcPortNumber5="21,80,81,102,443,502,514,1234,1962,4000,4001,5001,5120,7000:7025"
  11 srcPortNumber6="20000,32764,44818,49152,58455"
- 12 ip=""
+ 12 ip="192.168.1.1,192.168.1.2"
  13  
  14  
  15 #flush all rules
@@ -29,8 +29,8 @@
  28 #allow
  29 iptables -A INPUT -i lo -j ACCEPT
  30 iptables -A OUTPUT -i lo -j ACCEPT
- 31 # iptables -A PREROUTING -i eth0 -p tcp -s 210.69.230.190/24 --dport 22 -j ACCEPT
- 32 # iptables -A PREROUTING -i eth0 -p tcp -s 60.251.42.235/24 --dport 22 -j ACCEPT
+ 31 # iptables -A PREROUTING -i eth0 -p tcp -s 192.168.1.1 --dport 22 -j ACCEPT
+ 32 # iptables -A PREROUTING -i eth0 -p tcp -s 192.168.1.2 --dport 22 -j ACCEPT
  33 iptables -t nat -A PREROUTING -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT
  34 iptables -A INPUT -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT
  35 iptables -A OUTPUT -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT

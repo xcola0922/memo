@@ -1,0 +1,52 @@
+ iptables_rules.sh                                                                                                                             << buffers 
+  1 #!/bin/bash
+  2  
+  3 #define
+  4 srcPortNumber1="22"
+  5 dstPortNumber1="2222"
+  6 srcPortNumber2="23"
+  7 dstPortNumber2="2023"
+  8 srcPortNumber3="21,81,102,502,514,1234,1962,4000,4001,5001,5120,7000:7025,20000,32764"
+  9 srcPortNumber4="44818,49152,58455"
+ 10 srcPortNumber5="21,80,81,102,443,502,514,1234,1962,4000,4001,5001,5120,7000:7025"
+ 11 srcPortNumber6="20000,32764,44818,49152,58455"
+ 12 ip="210.69.230.190,60.251.42.235"
+ 13  
+ 14  
+ 15 #flush all rules
+ 16 iptables -F
+ 17 iptables -X
+ 18 iptables -Z
+ 19  
+ 20  
+ 21 #all drop
+ 22 iptables -P INPUT DROP
+ 23 iptables -P OUTPUT ACCEPT
+ 24 iptables -P FORWARD ACCEPT
+ 25 iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+ 26  
+ 27  
+ 28 #allow
+ 29 iptables -A INPUT -i lo -j ACCEPT
+ 30 iptables -A OUTPUT -i lo -j ACCEPT
+ 31 # iptables -A PREROUTING -i eth0 -p tcp -s 210.69.230.190/24 --dport 22 -j ACCEPT
+ 32 # iptables -A PREROUTING -i eth0 -p tcp -s 60.251.42.235/24 --dport 22 -j ACCEPT
+ 33 iptables -t nat -A PREROUTING -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT
+ 34 iptables -A INPUT -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT
+ 35 iptables -A OUTPUT -i eth0 -p tcp -s $ip --dport 22 -j ACCEPT
+ 36  
+ 37 #localhost
+ 38 # iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+ 39  
+ 40 #PREROUTING
+ 41 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $srcPortNumber1 -j REDIRECT --to-port $dstPortNumber1  #ssh
+ 42 iptables -t nat -A PREROUTING -i eth0 -p tcp --dport $srcPortNumber2 -j REDIRECT --to-port $dstPortNumber2  #telnet
+ 43 iptables -t nat -A PREROUTING -i eth0 -p tcp --match multiport --dports $srcPortNumber5 -j REDIRECT --to-port $dstPortNumber2  #Multiple Port
+ 44 iptables -t nat -A PREROUTING -i eth0 -p tcp --match multiport --dports $srcPortNumber6 -j REDIRECT --to-port $dstPortNumber2  #Multiple Port
+ 45 iptables -A INPUT -i eth0 -p tcp --match multiport --dport $dstPortNumber1 -j ACCEPT
+ 46 iptables -A INPUT -i eth0 -p tcp --match multiport --dport $dstPortNumber2 -j ACCEPT
+ 47  
+ 48 #OUTPUT
+ 49 # iptables -t nat -A OUTPUT -p tcp --dport $srcPortNumber1 -j REDIRECT --to-port $dstPortNumber1  #ssh_output
+ NORMAL >> iptables_rules.sh                                                                                      < sh < utf-8[unix] <   1% :   1/58 :  1 
+

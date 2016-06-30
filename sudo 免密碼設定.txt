@@ -1,0 +1,13 @@
+想要執行 sudo 指令時不用輸入密碼，可以用 visudo 設定：
+
+1. 執行 visudo 編輯 sudo 設定檔：
+2. 開啟了 /etc/sudoers (不要用 vi 直接開啟，要做上面的方法，建議執行 visudo) 後，假設用戶名稱是 user123, 找到這行：
+user123 ALL=(ALL) ALL
+改成
+user123 ALL=(ALL) NOPASSWD: ALL
+儲存離開後，下次用 sudo 執行指令便不會要求輸入密碼了
+
+(以下還沒試過)
+如果想給用戶以 root 身份執行指定指令，而不用輸入密碼，執行 visudo 後可以這樣設定：
+user123 ALL = NOPASSWD: /bin/systemctl restart httpd.service, /bin/kill
+這樣就會給 user123 執行 “/bin/systemctl restart httpd.service” 及 “/bin/kill” 兩個指令，而執行時無需輸入密碼。

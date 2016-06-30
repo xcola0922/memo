@@ -1,4 +1,8 @@
 
 
-yum update
+1.yum update
 
+2.安裝中文輸入法
+yum install "@Chinese Support"
+
+3.

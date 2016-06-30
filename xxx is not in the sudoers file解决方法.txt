@@ -1,0 +1,4 @@
+1)進入超級使用者模式。 也就是輸入"su -",系統會讓你輸入超級使用者密碼,輸入密碼後就進入了超級使用者模式。 (當然,你也可以直接用root用) 
+2)添加檔的寫許可權。 也就是輸入命令"chmod u+w /etc/sudoers"。  
+3)編輯/etc/sudoers檔。 也就是輸入命令"vim /etc/sudoers",輸入"i"進入編輯模式,找到這一 行:"root ALL=(ALL) ALL"在起下面添加"xxx ALL=(ALL) ALL"(這裡的xxx是你的使用者名),然後保存(就是先按一 下Esc鍵,然後輸入":wq")退出。  
+4)撤銷檔的寫許可權。 也就是輸入命令"chmod u-w /etc/sudoers"。

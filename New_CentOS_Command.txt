@@ -5,4 +5,5 @@
 2.安裝中文輸入法
 yum install "@Chinese Support"
 
-3.
+3.設定script為可執行檔
+chmod +x examplefile.py

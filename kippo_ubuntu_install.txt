@@ -1,5 +1,5 @@
-apt-get update
+sudo apt-get update
 
-apt-get install python-dev openssl python-openssl python-pyasn1 python-twisted python-crypto python-zope.interface
+sudo apt-get install python-dev openssl python-openssl python-pyasn1 python-twisted python-crypto python-zope.interface
 
-useradd -d /home/kippo -s /bin/bash -m kippo -g sudo
+sudo useradd -d /home/kippo -s /bin/bash -m kippo -g sudo

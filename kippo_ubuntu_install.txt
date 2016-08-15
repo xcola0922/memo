@@ -1,1 +1,5 @@
+apt-get update
+
+apt-get install python-dev openssl python-openssl python-pyasn1 python-twisted python-crypto python-zope.interface
+
 

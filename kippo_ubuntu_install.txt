@@ -15,3 +15,14 @@ sudo wget https://github.com/name/*zip
 sudo apt-get install mysql-server
 
 mysql -u root -p
+
+CREATE DATABASE databasename;
+
+SHOW DATABASES;
+
+GRANT ALL PRIVILEGES ON databasename.* TO "kippo"@"localhost" IDENTIFIED BY "password";
+
+FLUSH PRIVILEGES;
+
+SELECT User, host FROM mysql.user;
+

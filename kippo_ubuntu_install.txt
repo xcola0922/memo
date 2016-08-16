@@ -26,3 +26,4 @@ FLUSH PRIVILEGES;
 
 SELECT User, host FROM mysql.user;
 
+select db,host,user from mysql.db;

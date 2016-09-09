@@ -5,10 +5,16 @@ sudo apt-get install python-dev
 
 sudo apt-get install vim
 
+sudo apt-get install ctags taglist
+
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 touch .vimrc
 
 vim .vimrc
+add
+set rtp+=~/.vim/bundle/Vundle.vim
+at last line
+nmap <F8> :TagbarToggle<CR>
 
 Launch vim and run :PluginInstall

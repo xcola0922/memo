@@ -4,5 +4,5 @@ sudo mount /dev/cdrom /mnt/cdrom
 ls -l /mnt/cdrom
 tar xzvf /mnt/cdrom/VMwareTools-9.6.4-2441333.tar.gz -C /tmp/
 cd tmp
-./vmware-install.pl -c
+sudo ./vmware-install.pl -c
 

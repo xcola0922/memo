@@ -2,7 +2,7 @@ insert vmtools iso/disc
 sudo mkdir /mnt/cdrom
 sudo mount /dev/cdrom /mnt/cdrom
 ls -l /mnt/cdrom
-tar xzvf /mnt/cdrom/VMwareTools-9.6.4-2441333.tar.gz -C /tmp/
+tar xzvf /mnt/cdrom/VMwareTools-* -C /tmp/
 cd tmp
 sudo ./vmware-install.pl -c
 

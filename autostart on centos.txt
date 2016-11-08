@@ -1,0 +1,8 @@
+mysql autostart on centos
+
+sudo /sbin/chkconfig --level 0123456 mysqld on
+
+/sbin/chkconfig --list
+
+should result in the below output
+mysqld          0:on  1:on  2:on  3:on  4:on  5:on  6:on

@@ -1,1 +1,16 @@
 sudo apt-get update
+
+sudo apt-get install python-zope.interface
+
+sudo apt-get install python-twisted
+
+sudo apt-get install python-crypto python-pyasn1 python-gmpy2 python-mysqldb python-OpenSSL
+
+sudo apt-get install build-essential libssl-dev libffi-dev python-dev python-pip
+
+pip install cryptography
+
+sudo apt-get install git
+
+git clone https://github.com/micheloosterhof/cowrie.git
+

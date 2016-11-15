@@ -1,0 +1,8 @@
+crontab -e
+
+0 11 * * * /home/kippo/stop.sh
+5 11 * * * /home/kippo/start.sh
+
+
+
+http://linux.vbird.org/linux_basic/0430cron.php

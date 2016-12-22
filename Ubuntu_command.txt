@@ -1,1 +1,8 @@
-123
+壓縮兼加密碼
+$ zip -e compressed.zip file.txt
+Enter password: 
+Verify password:
+-----------------------------------------
+搜尋文件內特定字串,然後輸出到文件檔
+grep '2016-12-22' sourceip.txt > output.txt
+

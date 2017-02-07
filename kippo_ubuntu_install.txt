@@ -1,13 +1,8 @@
+"kippo need root start, so don't creat user account use it"
+
 sudo apt-get update
 
-sudo apt-get install python-dev openssl python-openssl python-pyasn1 python-twisted python-crypto python-zope.interface python-mysqldb
-sudo useradd -d /home/kippo -s /bin/bash -m kippo -g sudo
-
-sudo apt-get install authbind
-
-sudo passwd kippo
-
-sudo apt-get install git
+sudo apt-get install python-dev openssl python-openssl python-pyasn1 python-twisted python-crypto python-zope.interface python-mysqldb authbind git
 
 sudo git clone https://xxx.xxx.xxx.git
 
@@ -19,10 +14,16 @@ CREATE DATABASE databasename;
 
 SHOW DATABASES;
 
-GRANT ALL PRIVILEGES ON databasename.* TO "kippo"@"localhost" IDENTIFIED BY "password";
+GRANT ALL PRIVILEGES ON kippo.* TO "kippo"@"localhost" IDENTIFIED BY "password";
 
 FLUSH PRIVILEGES;
 
 SELECT User, host FROM mysql.user;
 
 select db,host,user from mysql.db;
+
+exit
+
+cp kippo.cfg.dist kippo.cfg
+
+"and config kippo.cfg"

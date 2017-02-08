@@ -24,6 +24,8 @@ select db,host,user from mysql.db;
 
 exit
 
+mysql -h localhost -u root -p kippo < /kippo-telnet/doc/sql/mysql.sql
+
 cp kippo.cfg.dist kippo.cfg
 
 "and config kippo.cfg"

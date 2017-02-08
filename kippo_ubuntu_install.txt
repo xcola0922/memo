@@ -2,7 +2,11 @@
 
 sudo apt-get update
 
-sudo apt-get install python-dev openssl python-openssl python-pyasn1 python-twisted python-crypto python-zope.interface python-mysqldb authbind git
+sudo apt-get install python-dev openssl python-openssl python-pyasn1 python-twisted python-crypto python-zope.interface python-mysqldb 
+
+sudo apt-get install authbind 
+
+sudo apt-get install git
 
 sudo git clone https://xxx.xxx.xxx.git
 

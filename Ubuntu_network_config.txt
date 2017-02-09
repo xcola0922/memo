@@ -1,0 +1,14 @@
+sudo vi /etc/network/interfaces
+
+edit
+ 1 auto lo
+ 2 iface lo inet loopback
+ 3 
+ 4 auto eth0
+ 5 iface eth0 inet static  # 固定 (靜態) IP。
+ 6 address 192.168.1.2 # IP 位址。
+ 7 netmask 255.255.255.0   # 網路遮罩。
+ 8 gateway 192.168.1.1 # 預設閘道。
+ 
+ sudo /etc/init.d/networking restart
+ or restart computer

@@ -1,0 +1,2 @@
+mergecap file.201703* -w test.pcap
+

@@ -4,5 +4,5 @@ sudo mount /dev/cdrom /mnt/cdrom
 ls -l /mnt/cdrom
 tar xzvf /mnt/cdrom/VMwareTools-* -C /tmp/
 cd tmp
-sudo ./vmware-install.pl -c
+sudo ./vmware-install.pl
 

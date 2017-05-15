@@ -10,5 +10,7 @@ edit
  7 netmask 255.255.255.0   # 網路遮罩。
  8 gateway 192.168.1.1 # 預設閘道。
  
+ dns-nameservers 168.95.1.1 8.8.8.8
+ 
  sudo /etc/init.d/networking restart
  or restart computer
